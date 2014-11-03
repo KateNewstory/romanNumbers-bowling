@@ -1,0 +1,41 @@
+li {
+    width: 120px;
+    border: 1px solid black;
+    float: left;
+    list-style-type: none;
+}
+
+.frame-info {
+    position: relative;
+    min-height: 35px;
+}
+
+.frame-info span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.frame-info .ball1 {
+    top: 0;
+    right: 20px;
+}
+
+.frame-info .ball2 {
+    top: 0;
+    right: 0;
+}
+
+.frame-info .score {
+    bottom: 0;
+    left: 5px;
+    border: none;
+}
+
+.pins-info {
+    border-top: 1px solid black;
+}
+

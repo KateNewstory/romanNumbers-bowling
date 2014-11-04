@@ -37,5 +37,6 @@ li {
 
 .pins-info {
     border-top: 1px solid black;
+    min-height: 35px;
 }
 

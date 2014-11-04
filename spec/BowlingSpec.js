@@ -47,6 +47,17 @@ describe('Bowling', function () {
                 expect(bowling.frame[0].ball2).toEqual(result);
             });
         });
+        describe('open frame', function () {
+            it('should return {"show" : number of 1, "score" : number of 1, "pins" : array}', function () {
+                var result = {"show":1, "score":1, "pins" : [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]};
+                bowling.cF = 0;
+                bowling.frame[bowling.cF] = {};
+                bowling.frame[bowling.cF].ball1 = bowling.getResultThrow([1, 0, 0, 0, 0, 0, 0, 0, 0, 0],1);
+                bowling.frame[bowling.cF].ball2 = bowling.getResultThrow([0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 2);
+
+                expect(bowling.frame[0].ball2).toEqual(result);
+            });
+        });
     });
     describe('playGame:', function () {
         it('should be function', function () {

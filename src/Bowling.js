@@ -16,17 +16,19 @@ var bowling = {
     cF:0,
     frame:[],
     throwBall:function (throwNum) {
+        throwNum = throwNum || 1;
         var result = [];
         if (throwNum == 1) {
             for (var i = 0; i <= 9; i++) {
                 result[i] = functions.getRandomInt(0, 1);
             }
         } else {
-            result = this.frame[this.cF].ball1.pins;
+            result = this.frame[this.cF].ball1.pins.slice();
             for (var i = 0; i < result.length; i++) {
-                result[i] = 1 - result[i];
                 if (!result[i]) {
                     result[i] = functions.getRandomInt(0, 1);
+                } else{
+                    result[i] = 0;
                 }
             }
         }
@@ -46,8 +48,9 @@ var bowling = {
         return result;
     },
     setFrameScores:function () {
-        this.frame[this.cF].score = this.frame[this.cF].ball1.score + this.frame[this.cF].ball1.score;
+        this.frame[this.cF].score = this.frame[this.cF].ball1.score + this.frame[this.cF].ball2.score;
         if ((this.cF - 1) >= 0) {
+            this.frame[this.cF].score += this.frame[this.cF-1].score;
             if (this.frame[this.cF - 1].ball2.show == '/') {
                 this.frame[this.cF - 1].score += this.frame[this.cF].score;
             }
@@ -74,7 +77,6 @@ var bowling = {
             this.setFrameScores();
             this.cF++;
         }
-        console.log(document.body);
         this.showGame();
     },
     showGame : function () {
